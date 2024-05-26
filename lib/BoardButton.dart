@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:x_o_game_flutter/ColorsAsset.dart';
 
 class BoardButton extends StatelessWidget {
-  static Color buttonColor = ColorsAsset.unClickedColor;
+  Color buttonColor = ColorsAsset.unClickedColor;
   String text ;
-
-  BoardButton({this.text = ""});
+  Function() onPressed ;
+  BoardButton({this.text = "",required this.onPressed,required this.buttonColor});
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +13,9 @@ class BoardButton extends StatelessWidget {
         child: Padding(
       padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 4),
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: (){
+          onPressed();
+        },
         child: Text(
           text,
           style: TextStyle(
