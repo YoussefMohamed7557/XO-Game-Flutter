@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/material.dart ';
+import 'package:x_o_game_flutter/BoardButton.dart';
 class GameBoard extends StatelessWidget {
   static const routeName = "GameBoard";
 
@@ -8,7 +9,7 @@ class GameBoard extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Center(
-          child: Text("XO Game"),
+          child: Text("XO Game",style:Theme.of(context).textTheme.headline1 ),
         ),
         backgroundColor: Colors.blueAccent,
         foregroundColor: Colors.white,
@@ -22,14 +23,14 @@ class GameBoard extends StatelessWidget {
               Column(
                 mainAxisAlignment:MainAxisAlignment.center,
                 children: [
-                Text("player1 (X)"),
-                Text("0"),
+                Text("player1 (X)",style:Theme.of(context).textTheme.headline1 ),
+                Text("0",style:Theme.of(context).textTheme.headline1 ),
               ],),
               Column(
                 mainAxisAlignment:MainAxisAlignment.center,
                 children: [
-                Text("player2 (O)"),
-                Text("0"),
+                Text("player2 (O)",style:Theme.of(context).textTheme.headline1 ),
+                Text("0",style:Theme.of(context).textTheme.headline1 ),
               ],)
             ],
           )),
@@ -37,12 +38,9 @@ class GameBoard extends StatelessWidget {
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                Expanded(
-                    child: ElevatedButton(onPressed: () {}, child: Text(""))),
-                Expanded(
-                    child: ElevatedButton(onPressed: () {}, child: Text(""))),
-                Expanded(
-                    child: ElevatedButton(onPressed: () {}, child: Text(""))),
+                BoardButton(),
+                BoardButton(),
+                BoardButton()
               ],
             ),
           ),
@@ -50,12 +48,9 @@ class GameBoard extends StatelessWidget {
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                Expanded(
-                    child: ElevatedButton(onPressed: () {}, child: Text(""))),
-                Expanded(
-                    child: ElevatedButton(onPressed: () {}, child: Text(""))),
-                Expanded(
-                    child: ElevatedButton(onPressed: () {}, child: Text(""))),
+                BoardButton(),
+                BoardButton(),
+                BoardButton()
               ],
             ),
           ),
@@ -63,12 +58,9 @@ class GameBoard extends StatelessWidget {
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                Expanded(
-                    child: ElevatedButton(onPressed: () {}, child: Text(""))),
-                Expanded(
-                    child: ElevatedButton(onPressed: () {}, child: Text(""))),
-                Expanded(
-                    child: ElevatedButton(onPressed: () {}, child: Text(""))),
+                BoardButton(),
+                BoardButton(),
+                BoardButton()
               ],
             ),
           ),
