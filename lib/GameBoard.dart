@@ -1,5 +1,3 @@
-import 'dart:js';
-
 import 'package:flutter/material.dart';
 import 'package:x_o_game_flutter/BoardButton.dart';
 import 'package:x_o_game_flutter/ColorsAsset.dart';
@@ -22,9 +20,7 @@ class _GameBoardState extends State<GameBoard> {
     pageContext = context;
     return Scaffold(
       appBar: AppBar(
-        title: Center(
-          child: Text("XO Game", style: Theme.of(context).textTheme.headline1),
-        ),
+        title:Row(children: [Spacer(flex: 3,),Text("XO Game", style: TextStyle(fontSize: 22,color: Colors.white,fontWeight: FontWeight.w600)),Spacer(flex: 5,)],) ,
         backgroundColor: Colors.blueAccent,
         foregroundColor: Colors.white,
       ),
