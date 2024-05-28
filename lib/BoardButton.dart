@@ -1,11 +1,14 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:x_o_game_flutter/ColorsAsset.dart';
 
 class BoardButton extends StatelessWidget {
   Color buttonColor = ColorsAsset.unClickedColor;
+  Color textColor = Colors.white;
   String text ;
   Function() onPressed ;
-  BoardButton({this.text = "",required this.onPressed,required this.buttonColor});
+  BoardButton({this.text = "",required this.onPressed,required this.buttonColor,required this.textColor});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +22,7 @@ class BoardButton extends StatelessWidget {
         child: Text(
           text,
           style: TextStyle(
-              fontSize: 38, color: Colors.white, fontWeight: FontWeight.w600),
+              fontSize: 38, color: textColor, fontWeight: FontWeight.w600),
         ),
         style: ElevatedButton.styleFrom(
             backgroundColor: buttonColor,
