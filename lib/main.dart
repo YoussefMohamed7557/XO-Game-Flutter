@@ -27,6 +27,7 @@ class MyApp  extends StatelessWidget {
         GameBoard.routeName : (context)=> GameBoard(),
         LoginScreen.routeName : (context) => LoginScreen(),
       },
+      debugShowCheckedModeBanner: false,
     );
   }
 }
