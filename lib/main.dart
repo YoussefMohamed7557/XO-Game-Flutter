@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:x_o_game_flutter/GameBoard.dart';
+import 'package:x_o_game_flutter/LoginScreen.dart';
 
 void main(){
   runApp(MyApp());
@@ -21,9 +22,10 @@ class MyApp  extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueAccent)
         )
       ),
-      initialRoute:  GameBoard.routeName,
+      initialRoute:  LoginScreen.routeName,
       routes: {
-        GameBoard.routeName : (context)=> GameBoard()
+        GameBoard.routeName : (context)=> GameBoard(),
+        LoginScreen.routeName : (context) => LoginScreen(),
       },
     );
   }
