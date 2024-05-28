@@ -20,12 +20,7 @@ Score Update: Automatically add 10 points to the winner's score after each game.
 Challenge your friends, track your victories, and enjoy the timeless fun of Tic Tac Toe with our X O Game app. Perfect for quick matches and extended play sessions alike!
 
 ## Screenshots
-![Players Setup Screen](assets/images/login.png),
-![Game board](assets/images/startGame.png),
-![notify Winner's Dialog](assets/images/notifyWinner.png),
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+![Players Setup Screen](assets/images/login.png)
+![Game board](assets/images/startGame.png)
+![notify Winner's Dialog](assets/images/notifyWinner.png)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
