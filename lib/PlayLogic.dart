@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart%20';
-import 'package:flutter/material.dart';
 class PlayLogic{
   static int counter = 0;
   static List<String> boardStatus = ["","","",
@@ -19,14 +17,10 @@ class PlayLogic{
       counter++;
       if(checkWinner('X')){
         gameState = "X-win";
-        print("X win");
       }else if(checkWinner('O')){
         gameState = "O-win";
-        print("O win");
       }else if(counter == 9){
         gameState = "DRAW";
-        print("Draw !");
-
       }
     }
   }
