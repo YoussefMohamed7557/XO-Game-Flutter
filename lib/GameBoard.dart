@@ -15,8 +15,10 @@ class _GameBoardState extends State<GameBoard> {
   late BuildContext pageContext;
   int player1score = 0;
   int player2score = 0;
+  late GameBoardArgs args;
   @override
   Widget build(BuildContext context) {
+    args = ModalRoute.of(context)?.settings.arguments as GameBoardArgs;
     pageContext = context;
     return Scaffold(
       appBar: AppBar(
@@ -35,7 +37,7 @@ class _GameBoardState extends State<GameBoard> {
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text("player1 (X)",
+                  Text("${args.player1Name} (X)",
                       style: Theme.of(context).textTheme.headline1),
                   Text("${player1score}",
                       style: Theme.of(context).textTheme.headline1),
@@ -44,7 +46,7 @@ class _GameBoardState extends State<GameBoard> {
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text("player2 (O)",
+                  Text("${args.player2Name} (O)",
                       style: Theme.of(context).textTheme.headline1),
                   Text("${player2score}",
                       style: Theme.of(context).textTheme.headline1),
@@ -66,7 +68,9 @@ class _GameBoardState extends State<GameBoard> {
                   buttonColor: PlayLogic.boardStatus[0] == ""
                       ? ColorsAsset.unClickedColor
                       : ColorsAsset.clickedColor,
-                 textColor:PlayLogic.itemsOfWining.contains(0)?ColorsAsset.winnerColor:Colors.white,
+                  textColor: PlayLogic.itemsOfWining.contains(0)
+                      ? ColorsAsset.winnerColor
+                      : Colors.white,
                 ),
                 BoardButton(
                   text: PlayLogic.boardStatus[1],
@@ -78,7 +82,9 @@ class _GameBoardState extends State<GameBoard> {
                   buttonColor: PlayLogic.boardStatus[1] == ""
                       ? ColorsAsset.unClickedColor
                       : ColorsAsset.clickedColor,
-                  textColor:PlayLogic.itemsOfWining.contains(1)?ColorsAsset.winnerColor:Colors.white,
+                  textColor: PlayLogic.itemsOfWining.contains(1)
+                      ? ColorsAsset.winnerColor
+                      : Colors.white,
                 ),
                 BoardButton(
                   text: PlayLogic.boardStatus[2],
@@ -90,7 +96,9 @@ class _GameBoardState extends State<GameBoard> {
                   buttonColor: PlayLogic.boardStatus[2] == ""
                       ? ColorsAsset.unClickedColor
                       : ColorsAsset.clickedColor,
-                  textColor:PlayLogic.itemsOfWining.contains(2)?ColorsAsset.winnerColor:Colors.white,
+                  textColor: PlayLogic.itemsOfWining.contains(2)
+                      ? ColorsAsset.winnerColor
+                      : Colors.white,
                 )
               ],
             ),
@@ -109,7 +117,9 @@ class _GameBoardState extends State<GameBoard> {
                   buttonColor: PlayLogic.boardStatus[3] == ""
                       ? ColorsAsset.unClickedColor
                       : ColorsAsset.clickedColor,
-                  textColor:PlayLogic.itemsOfWining.contains(3)?ColorsAsset.winnerColor:Colors.white,
+                  textColor: PlayLogic.itemsOfWining.contains(3)
+                      ? ColorsAsset.winnerColor
+                      : Colors.white,
                 ),
                 BoardButton(
                   text: PlayLogic.boardStatus[4],
@@ -121,7 +131,9 @@ class _GameBoardState extends State<GameBoard> {
                   buttonColor: PlayLogic.boardStatus[4] == ""
                       ? ColorsAsset.unClickedColor
                       : ColorsAsset.clickedColor,
-                  textColor:PlayLogic.itemsOfWining.contains(4)?ColorsAsset.winnerColor:Colors.white,
+                  textColor: PlayLogic.itemsOfWining.contains(4)
+                      ? ColorsAsset.winnerColor
+                      : Colors.white,
                 ),
                 BoardButton(
                   text: PlayLogic.boardStatus[5],
@@ -133,7 +145,9 @@ class _GameBoardState extends State<GameBoard> {
                   buttonColor: PlayLogic.boardStatus[5] == ""
                       ? ColorsAsset.unClickedColor
                       : ColorsAsset.clickedColor,
-                  textColor:PlayLogic.itemsOfWining.contains(5)?ColorsAsset.winnerColor:Colors.white,
+                  textColor: PlayLogic.itemsOfWining.contains(5)
+                      ? ColorsAsset.winnerColor
+                      : Colors.white,
                 )
               ],
             ),
@@ -152,7 +166,9 @@ class _GameBoardState extends State<GameBoard> {
                   buttonColor: PlayLogic.boardStatus[6] == ""
                       ? ColorsAsset.unClickedColor
                       : ColorsAsset.clickedColor,
-                  textColor:PlayLogic.itemsOfWining.contains(6)?ColorsAsset.winnerColor:Colors.white,
+                  textColor: PlayLogic.itemsOfWining.contains(6)
+                      ? ColorsAsset.winnerColor
+                      : Colors.white,
                 ),
                 BoardButton(
                   text: PlayLogic.boardStatus[7],
@@ -164,7 +180,9 @@ class _GameBoardState extends State<GameBoard> {
                   buttonColor: PlayLogic.boardStatus[7] == ""
                       ? ColorsAsset.unClickedColor
                       : ColorsAsset.clickedColor,
-                  textColor:PlayLogic.itemsOfWining.contains(7)?ColorsAsset.winnerColor:Colors.white,
+                  textColor: PlayLogic.itemsOfWining.contains(7)
+                      ? ColorsAsset.winnerColor
+                      : Colors.white,
                 ),
                 BoardButton(
                   text: PlayLogic.boardStatus[8],
@@ -176,7 +194,9 @@ class _GameBoardState extends State<GameBoard> {
                   buttonColor: PlayLogic.boardStatus[8] == ""
                       ? ColorsAsset.unClickedColor
                       : ColorsAsset.clickedColor,
-                  textColor:PlayLogic.itemsOfWining.contains(8)?ColorsAsset.winnerColor:Colors.white,
+                  textColor: PlayLogic.itemsOfWining.contains(8)
+                      ? ColorsAsset.winnerColor
+                      : Colors.white,
                 )
               ],
             ),
@@ -185,35 +205,53 @@ class _GameBoardState extends State<GameBoard> {
       ),
     );
   }
-  void checkGameState(){
-    switch(PlayLogic.gameState){
-      case "X-win" :
-        notifyWinner(pageContext, "the player1 win this match and get 10 points ", "Player X win ");
-        player1score+=10;
+
+  void checkGameState() {
+    switch (PlayLogic.gameState) {
+      case "X-win":
+        notifyWinner(pageContext,
+            "${args.player1Name} win this match and get 10 points ", "${args.player1Name} win ");
+        player1score += 10;
         break;
-      case "O-win" :
-        notifyWinner(pageContext, "the player2 win this match and get 10 points ", "Player O win ");
-        player2score+=10;
+      case "O-win":
+        notifyWinner(pageContext,
+            "${args.player2Name} win this match and get 10 points ", "${args.player2Name} win ");
+        player2score += 10;
         break;
-      case "DRAW" :
-        notifyWinner(pageContext, "the game finished without winner, so the board will be restarted", "Draw !");
+      case "DRAW":
+        notifyWinner(
+            pageContext,
+            "the game finished without winner, so the board will be restarted",
+            "Draw !");
         break;
     }
   }
-  void notifyWinner(BuildContext context, String contentText, String contentTitle){
+
+  void notifyWinner(
+      BuildContext context, String contentText, String contentTitle) {
     showDialog(
         context: context,
-        builder: (context)=> AlertDialog(
-          actions: [
-            TextButton(onPressed: (){
-              PlayLogic.initBoard();
-              setState(() {});
-              Navigator.of(context).pop();
-            }, child: Center(child: Text('ok'),))
-          ],
-          title: Text(contentTitle),
-          contentPadding: EdgeInsets.all(20),
-          content: Text(contentText),
-        ));
+        builder: (context) => AlertDialog(
+              actions: [
+                TextButton(
+                    onPressed: () {
+                      PlayLogic.initBoard();
+                      setState(() {});
+                      Navigator.of(context).pop();
+                    },
+                    child: Center(
+                      child: Text('ok'),
+                    ))
+              ],
+              title: Center(child: Text(contentTitle)),
+              contentPadding: EdgeInsets.all(20),
+              content: Text(contentText),
+            ));
   }
+}
+
+class GameBoardArgs {
+  String player1Name;
+  String player2Name;
+  GameBoardArgs({required this.player1Name,required this.player2Name});
 }
