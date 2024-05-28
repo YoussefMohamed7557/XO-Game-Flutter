@@ -23,4 +23,3 @@ Challenge your friends, track your victories, and enjoy the timeless fun of Tic 
 <img src="assets/images/login.png" alt="Players Setup Screen" width="300">
 <img src="assets/images/startGame.png" alt="Game board" width="300">
 <img src="assets/images/notifyWinner.png" alt="Notify Winner's Dialog" width="300">
-
